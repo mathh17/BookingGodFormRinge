@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/TeamObject.js"></script>
+    <script src ="js/TrainerObject.js"></script>
+    <script src ="js/InfoObject.js"></script>
+    <img href="Udklip5.PNG" id="Søren" style="width: 100%; height: 100%;" >
+    
+    <script src="lib/easeljs-0.8.2.min.js"></script>
+    
+</head>
+    <script>
+    /*var img = new image();
+    img.src = udklip5.png;*/
+
+        
+    </script>
+<body onload="init()">
+    <canvas id="canvas" width="800" height="600" style="border: black solid 1px"></canvas>
+    </body>
+    <script>
+    var stage;
+
+        function init() {
+        stage = new createjs.Stage(document.getElementById('canvas'));
+        createjs.Ticker.addEventListener("tick", stage);
+             printTrainerImg();
+        }
+        var trainerImg = document.getElementById("Søren")
+         
+        var søren = new TrainerObject("Søren", trainerImg , "Han hedder søren")
+        var spinning = new TeamObject("Spinning", 8, 9, søren.trainerName, "Salen", 10, "Du skal cykle");
+        console.log(spinning);
+        console.log(søren.trainerPicture);
+        
+        function printTrainerImg(){
+            var img = new createjs.Bitmap(søren.trainerPicture);
+            stage.addChild(img);
+        }
+       
+        </script>
+</html>
