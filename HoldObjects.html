@@ -9,12 +9,7 @@
     <script src="lib/easeljs-0.8.2.min.js"></script>
     
 </head>
-    <script>
-    /*var img = new image();
-    img.src = udklip5.png;*/
-
-        
-    </script>
+   
 <body onload="init()">
     <canvas id="canvas" width="800" height="600" style="border: black solid 1px"></canvas>
     </body>
@@ -26,17 +21,44 @@
         createjs.Ticker.addEventListener("tick", stage);
              printTrainerImg();
         }
-        var trainerImg = document.getElementById("Søren")
-         
-        var søren = new TrainerObject("Søren", trainerImg , "Han hedder søren")
-        var spinning = new TeamObject("Spinning", 8, 9, søren.trainerName, "Salen", 10, "Du skal cykle");
+                
+           var sørenPicture = new Image();
+        sørenPicture.src = "Udklip5.png";
+        
+        var søren = new TrainerObject(
+            "Søren", 
+             sørenPicture, 
+            "Han hedder søren"
+        );
+
+        var katrinePicture = new Image();
+        katrinePicture.src = "Udklip5.png";
+        
+        var katrine = new TrainerObject(
+            "Katrine", 
+             katrinePicture, 
+            "Hun hedder Katrine"
+        );
+
+        
+        var spinning = new TeamObject(
+            "Spinning", 
+            8, 
+            9, 
+            søren.trainerName, 
+            "Salen", 
+            10, 
+            "Du skal cykle"
+        );
+        
         console.log(spinning);
         console.log(søren.trainerPicture);
-        
+        console.log(katrine.trainerPicture);
         function printTrainerImg(){
-            var img = new createjs.Bitmap(søren.trainerPicture);
-            stage.addChild(img);
+            var img1 = new createjs.Bitmap(søren.trainerPicture);
+            var img2 = new createjs.Bitmap(katrine.trainerPicture);
+            img2.x = 300;
+            stage.addChild(img1, img2);
         }
-       
         </script>
 </html>
