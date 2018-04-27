@@ -11,6 +11,7 @@
 </head>
    
 <body onload="init()">
+    
     <canvas id="canvas" width="800" height="600" style="border: black solid 1px"></canvas>
     </body>
     <script>
@@ -21,9 +22,9 @@
         createjs.Ticker.addEventListener("tick", stage);
              printTrainerImg();
         }
-                
+            
            var sørenPicture = new Image();
-        sørenPicture.src = "Udklip5.png";
+        sørenPicture.src = "pictures/Udklip5.png";
         
         var søren = new TrainerObject(
             "Søren", 
@@ -32,7 +33,7 @@
         );
 
         var katrinePicture = new Image();
-        katrinePicture.src = "Udklip5.png";
+        katrinePicture.src = "pictures/Udklip5.png";
         
         var katrine = new TrainerObject(
             "Katrine", 

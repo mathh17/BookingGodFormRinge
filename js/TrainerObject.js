@@ -21,3 +21,16 @@ function TrainerObject(trainerName, trainerPicture, trainerDescription ){
              katrinePicture, 
             "Hun hedder Katrine"
         );
+
+        var andersPicture = new Image();
+        andersPicture.src = "../Udklip5.png";
+        var anders = new TrainerObject(
+            "Anders",
+            andersPicture,
+            "Han hedder Anders"
+        )
+
+        var trainerArray = [];
+        trainerArray.push(søren);
+        trainerArray.push(katrine);
+        trainerArray.push(anders);

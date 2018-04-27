@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700" rel="stylesheet">
+    <script src="js/js.js"></script>
+    <script src="js/custom.modernizr.js"></script>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/TeamObject.js"></script>
+    <script src="js/TrainerObject.js"></script>
+    <script src="js/InfoObject.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="large-12 topmenu">
+            <a href="index.html">FORSIDE</a>
+            <a href="booking.html">BOOKING</a>
+            <a href="medlem.html">MEDLEMSKAB</a>
+            <div class="team">
+                <a href="opretHold.html">OPRET HOLD</a>
+            </div>
+        </div>
+
+        <br>
+
+
+    </header>
+
+    <form>
+        HOLDNAVN:<br>
+        <input type="text" name="holdnavn" id="holdnavn" value=""><br> TRÆNER:
+        <br>
+        <select type="text" id="trainers" onchange="trainerSelect()">
+            <option value="søren">Søren</option>
+            <option value="katrine">Katrine</option>
+            <option value="anders">Anders</option>
+        </select> SAL:
+        <br>
+        <input type="text" name="lokation" id="lokation"> <br> Max. Deltagere
+        <input type="text" name="maxDeltagere" id="maxDeltagere"> <br>
+
+
+    </form>
+    STARTIME
+    <select name="starTime" id="startHours">
+    </select> :
+    <select name="startTime" id="startMinutes">
+    </select> <br> ENDTIME
+    <select name="endTime" id="endHours">
+    </select> :
+    <select name="endTime" id="endMinutes">
+    </select>
+    <br> DURATION :
+    <br>
+    <button id="opretHold">Opret Hold</button>
+
+</body>
+
+<script>
+    for (var i = 0; i <= 23; i++) {
+        let select = document.getElementById('startHours');
+        var opt = document.createElement('option');
+        var hours = i;
+        opt.value += i;
+        console.log(opt.value);
+        if (hours.toString().length == 1) {
+            opt.innerHTML = '0' + hours;
+        } else {
+            opt.innerHTML = hours;
+
+        }
+        select.appendChild(opt);
+    }
+    console.log(opt.value);
+    var e = document.getElementById("startHours");
+    var startValue = e.options[e.selectedIndex].value;
+    var startTid = e.options[e.selectedIndex].text;
+    console.log(startValue);
+    console.log(startTid);
+
+    document.getElementById("opretHold").addEventListener("click", function() {
+        localStorage.setItem('startHour', startTid);
+
+    });
+
+    for (var i = 0; i <= 60; i += 5) {
+        let select = document.getElementById('startMinutes');
+        let opt = document.createElement('option');
+        let minutes = i;
+        if (minutes.toString().length == 1) {
+            opt.innerHTML = '0' + minutes;
+        } else {
+            opt.innerHTML = minutes;
+
+        }
+        opt.value = i;
+        select.appendChild(opt);
+    }
+
+    for (var i = 0; i <= 23; i++) {
+        let select = document.getElementById('endHours');
+        let opt = document.createElement('option');
+        let hours = i;
+        if (hours.toString().length == 1) {
+            opt.innerHTML = '0' + hours;
+        } else {
+            opt.innerHTML = hours;
+
+        }
+        opt.value = i;
+        select.appendChild(opt);
+    }
+
+    for (var i = 0; i <= 60; i += 5) {
+        let select = document.getElementById('endMinutes');
+        let opt = document.createElement('option');
+        let minutes = i;
+        if (minutes.toString().length == 1) {
+            opt.innerHTML = '0' + minutes;
+        } else {
+            opt.innerHTML = minutes;
+
+        }
+        opt.value = i;
+        select.appendChild(opt);
+    }
+
+
+
+    calculateTime();
+
+    function calculateTime() {
+        var starTime = document.getElementById('startHours').value;
+    }
+    
+    function storeTeamLocation() {
+        var locationId = document.getElementById("lokation");
+        var newLokationName = locationId.value.toString();
+        return newLokationName;
+    }
+
+    function storeTeamName() {
+        var nameId = document.getElementById("holdnavn");
+        var newTeamName = nameId.value.toString();
+        return newTeamName;
+    }
+
+    
+      function storeMaxParticipants() {
+        var maxParticipantId = document.getElementById("maxDeltagere");
+        var newMaxParticipants = parseInt(maxParticipantId.value);
+        return newMaxParticipants;
+    }
+    
+    function trainerSelect() {
+        var x = document.getElementById('trainers');
+        var i = x.selectedIndex;
+        if(i == 0){
+            return trainerArray[0].trainerName;
+        }
+        else if(i == 1){
+            return trainerArray[1].trainerName;
+        }
+        else if(i == 2){
+            return trainerArray[2].trainerName;
+        }
+    }
+
+    document.getElementById("opretHold").addEventListener("click", function() {
+        var newTeam = new TeamObject(
+            storeTeamName(),
+            8,
+            9,
+            trainerSelect(),
+            storeTeamLocation(),
+            storeMaxParticipants(),
+            "Du skal cykle");
+        console.log(newTeam);
+    });
+
+
+</script>
+
+</html>
