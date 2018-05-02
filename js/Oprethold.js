@@ -194,7 +194,7 @@
             storeWeekDays(),
             document.getElementById('eachWeek').checked
         );
-        var lsTeam = localStorage.getItem('newTeam_Data');
+         var lsTeam = localStorage.getItem('newTeam_Data');
             if (lsTeam != null) {
                 lsTeamsArray = JSON.parse(lsTeam);
             } else {
@@ -204,8 +204,6 @@
             lsTeamsArray.push(newTeam);
 
             localStorage.setItem('newTeam_Data', JSON.stringify(lsTeamsArray));
-
-        
         
         console.log(newTeam);
     });
