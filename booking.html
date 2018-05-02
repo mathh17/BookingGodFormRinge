@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/generel.css">
+    <link rel="stylesheet" href="css/booking.css">
     <link rel="stylesheet" href="css/foundation.css">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,700" rel="stylesheet">
+    
     <script src="js/js.js"></script>
     <script src="js/custom.modernizr.js"></script>
 
@@ -20,26 +21,18 @@
 <body>
 
     <header>
-        <div class="large-12 hide-for-small topmenu">
-                <a href="index.html">FORSIDE</a>
-                <a href="booking.html">BOOKING</a>
-                <a href="medlem.html">MEDLEMSKAB</a>
-                <div class="team">
-                    <a href="opretHold.html">OPRET HOLD</a>
-                </div>
-        </div>
-
-        <div class="small-12 hide-for-medium-up">
-            <select>
-                    <option href="index.html">FORSIDE</option>
-                    <option href="booking.html" >BOOKING</option>
-                    <option href="medlem.html" >MEDLEMSKAB</option>
-                    <option href="opretHold.html" >OPRET HOLD</option>
-                    <option href="" >SPROG</option>
-
-            </select>
-        </div>
-
+        <ul class="medium-12 topmenu">
+            <li>MENU<img src="pictures/arrowbig.png"></li>
+            <li><img src="pictures/godFormLogo.png"></li>
+            <li class="menu"><a href="index.html">FORSIDE</a></li>
+            <li class="menu"><a href="booking.html">BOOKING</a></li>
+            <li class="menu"><a href="medlem.html">MEDLEMSKAB</a></li>
+            <div class="moveRight">
+                <span></span>
+                <li class="menu"><a href="opretHold.html">OPRET HOLD</a></li>
+                <li class="menu"><a href="index.html">LOG AF</a></li>
+            </div>
+        </ul>
     </header>
 
     <div class="large-12 content">
@@ -82,6 +75,7 @@
 
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/navBar.js"></script>
     <script>
         $(document).foundation();
 
@@ -89,3 +83,4 @@
 </body>
 
 </html>
+
