@@ -1,4 +1,3 @@
-/*Fixes the header to the top of the page*/
 header {
     position: fixed;
     width: 100%;
@@ -37,8 +36,8 @@ ul.topmenu li:first-child {
 /*Styles menu arrow*/
 
 ul.topmenu li:first-child img {
-    height: 13px;
-    width: 15px;
+    height: 25px;
+    width: 20%;
     position: relative;
     padding-bottom: 4px;
     padding-left: 4px;

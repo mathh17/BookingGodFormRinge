@@ -11,6 +11,7 @@ var teams = [teamMandagFormiddag, teamTirsdagFormiddag, teamOnsdagFormiddag, tea
 var weekday = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'Søndag'];
 var week = moment().week();
 var date = moment().format("MMM Do YY");
+var currentWeek = 0;
 
 
  function loadTeamArray() {
@@ -40,6 +41,7 @@ for (var i = 0; i < lsTeamsArray.length; i++) {
 }
 
 function buildTable() {
+    $('#dynamicTable').empty();
     $('#dynamicTable').append('<table></table>');
 
     $('#dynamicTable table').append('<tr></tr>').attr('id', 'tableDates');
@@ -57,12 +59,27 @@ function buildTable() {
         var numberOfDaysToAdd = 0;
 
         // 
-        if (i < day1) {
-            numberOfDaysToAdd -= day1 - i;
-        } else if (i > day1) {
-            numberOfDaysToAdd += i - day1;
-        } else {
-            numberOfDaysToAdd = 0;
+      if (currentWeek == 0) {
+            if (i < day1) {
+                numberOfDaysToAdd -= day1 - i;
+            } else if (i > day1) {
+                numberOfDaysToAdd += i - day1;
+            } else {
+                numberOfDaysToAdd = 0 ;
+            }
+        }
+        else {
+            if (i < day1) {
+                numberOfDaysToAdd -= day1 - i;
+                numberOfDaysToAdd += currentWeek * 7;
+            } else if (i > day1) {
+                numberOfDaysToAdd += i - day1;
+                numberOfDaysToAdd += currentWeek * 7;
+            } else {
+                numberOfDaysToAdd = 0;
+                numberOfDaysToAdd += currentWeek * 7;
+            }
+            
         }
 
 
@@ -134,9 +151,13 @@ $(document).ready(function () {
 
     $(".buttonMidRight").click(function () {
         $(".buttonMid").text('UGE ' + (week + 1).toString());
+        currentWeek++;
+        buildTable();
     });
     $(".buttonMidLeft").click(function () {
         $(".buttonMid").text('UGE ' + week.toString());
+        currentWeek--;
+        buildTable();   
     });
 
 
