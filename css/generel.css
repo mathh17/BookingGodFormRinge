@@ -1,4 +1,5 @@
 /*Fixes the header to the top of the page*/
+
 header {
     position: fixed;
     width: 100%;
@@ -20,14 +21,17 @@ ul.topmenu {
 }
 
 /*Hides the list when not hovered over in small scale*/
+
 ul.topmenu li {
     display: none;
     text-align: center;
     text-decoration: none;
-    color: black;
+    color: white;
     border-left: 1px solid #2E312C;
     padding: 6px 16px;
+    letter-spacing: 2px;
 }
+
 /*Makes the first item in the list ("menu") visible to be able to hover over it in small screen*/
 
 ul.topmenu li:first-child {
@@ -57,24 +61,63 @@ ul.topmenu li:first-child img {
 ul.topmenu li a {
     display: block;
     text-decoration: none;
-    color: black;
+    color: white;
+    letter-spacing: 2px;
 }
 
 /* styling of table */
+
 td {
     text-align: center;
-    
+
 }
-tr{
+
+tr {
     margin: auto;
 }
 
 td {
     width: 14.28%;
+    vertical-align: top;
 }
 
-table{
+table {}
+
+button {
+    border-radius: 3px;
+}
+
+.headerTable {
+
+    margin-bottom: unset;
+    width: 14.28%;
+    font-family: Montserrat-Medium;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.4;
+    text-transform: uppercase;
+    background-color: #36304a;
+   
+}
+
+#Mandag {
+     border-top-left-radius: 5px;
+}
+#Søndag {
+    border-top-right-radius: 5px;
+}
+
+.mainTable {
     width: 100%;
+    background: white;
+    margin-bottom: 17.25em;
+
+    border: solid 0px #dddddd;
+    border-radius: 10px;
+}
+
+#tableDates {
+    background-color: #36304a;
 }
 
 
